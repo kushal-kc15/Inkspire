@@ -1,8 +1,25 @@
 {% extends 'base.html' %}
-{% load socialaccount %}
+{% load static socialaccount %}
 
 {% block title %}Create Account | InkSpire{% endblock %}
 {% block meta_description %}Create an InkSpire account.{% endblock %}
+{% block extra_head %}<link href="{% static 'css/landing.css' %}" rel="stylesheet">{% endblock %}
+
+{% block navbar %}
+<header class="lp-nav">
+  <div class="lp-nav__inner">
+    <a class="lp-brand" href="{% url 'home' %}">InkSpire</a>
+    <nav class="lp-nav__links">
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+    <div class="lp-nav__actions">
+      <a href="{% url 'account_login' %}" class="lp-nav__signin">Sign in</a>
+      <a href="{% url 'account_signup' %}" class="lp-nav__cta">Get Started</a>
+    </div>
+  </div>
+</header>
+{% endblock %}
 
 {% block content %}
 <div class="container-standard">

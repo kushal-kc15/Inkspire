@@ -105,34 +105,6 @@
   --theme-transition-duration: 200ms;
 }
 
-/* Dark theme */
-:root[data-theme="dark"] {
-  /* Surfaces & text — near-black bg, warm off-white text */
-  --color-background: #14130F;        /* near-black, warm-tinted */
-  --color-surface: #1D1B16;           /* elevated surface just above bg */
-  --color-surface-muted: #26241E;     /* secondary/subtle surface */
-  --color-text-primary: #F4F1E8;      /* warm off-white primary text */
-  --color-text-secondary: #B4AF9F;    /* warm muted secondary text */
-  --color-border: #3A372E;            /* hairline border on dark surfaces */
-
-  --color-accent: #60A5FA;              /* lighter blue for dark backgrounds */
-  --color-accent-hover: #93C5FD;
-  --color-accent-contrast: #14130F;
-
-  /* Status colors lifted for legibility on dark backgrounds */
-  --color-success: #6FB585;
-  --color-warning: #D6B24A;
-  --color-danger: #E0796E;
-
-  --color-success-tint: rgba(111, 181, 133, 0.16);
-  --color-warning-tint: rgba(214, 178, 74, 0.16);
-  --color-danger-tint: rgba(224, 121, 110, 0.16);
-
-  /* Shadows on dark surfaces need deeper alpha to remain perceptible */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.40);
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.50);
-  --shadow-focus: 0 0 0 3px rgba(96, 165, 250, 0.40);
-}
 
 /* Base */
 html {
@@ -1030,10 +1002,6 @@ select.form-control { appearance: none; }
 .theme-toggle:hover { background-color: var(--color-surface-muted); }
 .theme-toggle:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
 
-.theme-toggle__icon--light { display: none; }
-.theme-toggle__icon--dark { display: inline-block; }
-:root[data-theme="dark"] .theme-toggle__icon--light { display: inline-block; }
-:root[data-theme="dark"] .theme-toggle__icon--dark { display: none; }
 
 /* Mobile: collapse the nav behind the toggle. */
 @media (max-width: 767px) {
