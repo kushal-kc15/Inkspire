@@ -1,0 +1,66 @@
+{# Mobile bottom navigation bar with slide-up menu #}
+<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+  <ul class="mobile-bottom-nav__list">
+    <li class="mobile-bottom-nav__item">
+      <a href="{% url 'home' %}" {% if request.path == '/' %}class="mobile-nav--active"{% endif %}>
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li class="mobile-bottom-nav__item">
+      <a href="{% url 'category_index' %}" {% if request.path == '/categories/' %}class="mobile-nav--active"{% endif %}>
+        <i class="fa fa-compass" aria-hidden="true"></i>
+        <span>Explore</span>
+      </a>
+    </li>
+    <li class="mobile-bottom-nav__item mobile-bottom-nav__item--write">
+      <a href="{% url 'add_post' %}">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        <span>Write</span>
+      </a>
+    </li>
+    <li class="mobile-bottom-nav__item">
+      <a href="{% url 'my_bookmarks' %}" {% if 'bookmarks' in request.path %}class="mobile-nav--active"{% endif %}>
+        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+        <span>Library</span>
+      </a>
+    </li>
+    <li class="mobile-bottom-nav__item">
+      <button type="button" class="mobile-bottom-nav__more-btn" id="mobile-more-btn" aria-expanded="false" aria-controls="mobile-more-menu" onclick="toggleMobileMore()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+        <span>More</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+{# Slide-up menu #}
+<div class="mobile-more-overlay" id="mobile-more-overlay" onclick="toggleMobileMore()" hidden></div>
+<div class="mobile-more-menu" id="mobile-more-menu" hidden>
+  <div class="mobile-more-menu__header">
+    <span class="mobile-more-menu__title">Menu</span>
+    <button type="button" class="mobile-more-menu__close" onclick="toggleMobileMore()" aria-label="Close menu">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </button>
+  </div>
+  <ul class="mobile-more-menu__list">
+    <li><a href="{% url 'following_feed' %}"><i class="fa fa-users" aria-hidden="true"></i> Following</a></li>
+    <li><a href="{% url 'my_stories' %}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Posts</a></li>
+    <li><a href="{% url 'series_list' %}"><i class="fa fa-list-ol" aria-hidden="true"></i> Series</a></li>
+    <li><a href="{% url 'my_stats' %}"><i class="fa fa-bar-chart" aria-hidden="true"></i> Stats</a></li>
+    <li><a href="{% url 'profile' %}"><i class="fa fa-user-o" aria-hidden="true"></i> Profile</a></li>
+    <li><a href="{% url 'edit_profile' %}"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a></li>
+  </ul>
+</div>
+
+<script>
+function toggleMobileMore() {
+  var menu = document.getElementById('mobile-more-menu');
+  var overlay = document.getElementById('mobile-more-overlay');
+  var btn = document.getElementById('mobile-more-btn');
+  var open = menu.hidden;
+  menu.hidden = !open;
+  overlay.hidden = !open;
+  btn.setAttribute('aria-expanded', String(open));
+}
+</script>

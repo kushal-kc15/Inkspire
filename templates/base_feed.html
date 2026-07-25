@@ -24,32 +24,5 @@
 </div>
 
 {# Mobile bottom nav #}
-<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
-  <ul class="mobile-bottom-nav__list">
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'home' %}" {% if request.path == '/' %}class="mobile-nav--active"{% endif %}>
-        <i class="fa fa-home" aria-hidden="true"></i>
-        <span>Home</span>
-      </a>
-    </li>
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'category_index' %}" {% if request.path == '/categories/' %}class="mobile-nav--active"{% endif %}>
-        <i class="fa fa-compass" aria-hidden="true"></i>
-        <span>Explore</span>
-      </a>
-    </li>
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'my_bookmarks' %}" {% if 'bookmarks' in request.path %}class="mobile-nav--active"{% endif %}>
-        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-        <span>Library</span>
-      </a>
-    </li>
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'profile' %}" {% if request.path == '/profile/' %}class="mobile-nav--active"{% endif %}>
-        <i class="fa fa-user-o" aria-hidden="true"></i>
-        <span>Profile</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+{% include 'partials/mobile_bottom_nav.html' %}
 {% endblock %}

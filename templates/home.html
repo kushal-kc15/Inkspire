@@ -119,34 +119,7 @@
 
 </div>
 
-<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
-  <ul class="mobile-bottom-nav__list">
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'home' %}" class="mobile-nav--active">
-        <i class="fa fa-home" aria-hidden="true"></i>
-        <span>Home</span>
-      </a>
-    </li>
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'category_index' %}">
-        <i class="fa fa-compass" aria-hidden="true"></i>
-        <span>Explore</span>
-      </a>
-    </li>
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'my_bookmarks' %}">
-        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
-        <span>Library</span>
-      </a>
-    </li>
-    <li class="mobile-bottom-nav__item">
-      <a href="{% url 'profile' %}">
-        <i class="fa fa-user-o" aria-hidden="true"></i>
-        <span>Profile</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+{% include 'partials/mobile_bottom_nav.html' %}
 
 {% endblock %}
 
