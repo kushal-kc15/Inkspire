@@ -1897,8 +1897,14 @@ select.form-control { appearance: none; }
 .site-main:has(.feed-3col),
 .site-main:has(.base-feed-layout) {
   padding-block: 0;
-  overflow: hidden;
-  height: calc(100vh - 48px);
+}
+
+@media (min-width: 768px) {
+  .site-main:has(.feed-3col),
+  .site-main:has(.base-feed-layout) {
+    overflow: hidden;
+    height: calc(100vh - 48px);
+  }
 }
 .site-main:has(.feed-3col) .container-standard,
 .site-main:has(.base-feed-layout) .container-standard {
@@ -1907,10 +1913,12 @@ select.form-control { appearance: none; }
 
 /* Prevent the body from scrolling and hide the footer on feed layout pages —
    the footer would push total page height past 100vh and break column scrolling. */
-body:has(.feed-3col),
-body:has(.base-feed-layout) {
-  overflow: hidden;
-  height: 100vh;
+@media (min-width: 768px) {
+  body:has(.feed-3col),
+  body:has(.base-feed-layout) {
+    overflow: hidden;
+    height: 100vh;
+  }
 }
 
 body:has(.feed-3col) .site-footer,
