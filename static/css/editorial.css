@@ -1041,7 +1041,8 @@ select.form-control { appearance: none; }
   .site-main {
     padding-top: 56px;
   }
-  .site-nav__toggle { display: inline-flex; }
+  .nav-search { margin-left: auto; }
+  .site-nav__toggle { display: inline-flex; margin-left: var(--space-2); }
   .site-nav__collapse {
     display: none;
     flex-direction: column;
@@ -1053,6 +1054,8 @@ select.form-control { appearance: none; }
   .site-nav__checkbox:checked ~ .site-nav__collapse { display: flex; }
   .site-nav__links { flex-direction: column; align-items: stretch; }
   .site-nav__actions { margin-left: 0; }
+  .nav-write-btn { display: none; }
+  .prof-dropdown { display: none; }
   .site-search { max-width: none; }
 }
 
@@ -1906,6 +1909,13 @@ select.form-control { appearance: none; }
 .site-main:has(.feed-3col),
 .site-main:has(.base-feed-layout) {
   padding-block: 0;
+}
+
+@media (max-width: 767px) {
+  .site-main:has(.feed-3col),
+  .site-main:has(.base-feed-layout) {
+    padding-top: 56px;
+  }
 }
 
 @media (min-width: 768px) {
