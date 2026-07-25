@@ -137,17 +137,18 @@
   </header>
   {% endblock %}
 
+  {% if messages %}
+  <div class="toast-container" id="toast-container">
+    {% for message in messages %}
+    <div class="toast {% if message.tags == 'error' %}toast--danger{% elif message.tags %}toast--{{ message.tags }}{% else %}toast--info{% endif %}" role="status">
+      {{ message }}
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <main class="site-main" id="main-content">
     <div class="container-standard">
-      {% if messages %}
-      <div class="site-messages" role="status" aria-live="polite">
-        {% for message in messages %}
-        <div class="alert {% if message.tags == 'error' %}alert--danger{% elif message.tags %}alert--{{ message.tags }}{% else %}alert--info{% endif %}" role="alert">
-          {{ message }}
-        </div>
-        {% endfor %}
-      </div>
-      {% endif %}
     </div>
 
     {% block content %}
@@ -218,6 +219,17 @@
         }
       }
     });
+
+    // Auto-dismiss toasts
+    (function() {
+      var container = document.getElementById('toast-container');
+      if (!container) return;
+      setTimeout(function() {
+        container.style.opacity = '0';
+        container.style.transform = 'translateY(-10px)';
+        setTimeout(function() { container.remove(); }, 300);
+      }, 3000);
+    })();
   </script>
 </body>
 
