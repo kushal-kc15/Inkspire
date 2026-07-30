@@ -3,6 +3,156 @@
    Inspired by: clean two-column hero, big serif headline, ghosted watermark
    ========================================================================== */
 
+/* ── Animations ──────────────────────────────────────────────────────────── */
+@keyframes lp-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lp-fade-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes lp-fade-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes lp-scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Hero entrance */
+.lp-anim-hero {
+  opacity: 0;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+.lp-anim-hero--left {
+  animation-name: lp-fade-left;
+  animation-delay: 0.2s;
+}
+
+.lp-anim-hero--right {
+  animation-name: lp-fade-right;
+  animation-delay: 0.4s;
+}
+
+/* Scroll-reveal */
+.lp-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lp-reveal.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children animation for features and testimonials */
+.lp-visible .lp-feature,
+.lp-visible .lp-testimonial,
+.lp-visible .lp-stat,
+.lp-visible .lp-step {
+  opacity: 0;
+  animation: lp-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.lp-visible .lp-feature:nth-child(1),
+.lp-visible .lp-testimonial:nth-child(1),
+.lp-visible .lp-stat:nth-child(1),
+.lp-visible .lp-step:nth-child(1) { animation-delay: 0.1s; }
+
+.lp-visible .lp-feature:nth-child(2),
+.lp-visible .lp-testimonial:nth-child(2),
+.lp-visible .lp-stat:nth-child(2),
+.lp-visible .lp-step:nth-child(2) { animation-delay: 0.2s; }
+
+.lp-visible .lp-feature:nth-child(3),
+.lp-visible .lp-testimonial:nth-child(3),
+.lp-visible .lp-stat:nth-child(3),
+.lp-visible .lp-step:nth-child(3) { animation-delay: 0.3s; }
+
+.lp-visible .lp-feature:nth-child(4),
+.lp-visible .lp-stat:nth-child(4) { animation-delay: 0.4s; }
+
+.lp-visible .lp-feature:nth-child(5) { animation-delay: 0.5s; }
+.lp-visible .lp-feature:nth-child(6) { animation-delay: 0.6s; }
+
+/* FAQ open/close animation */
+.lp-faq__answer {
+  animation: lp-fade-up 0.3s ease forwards;
+}
+
+/* Button hover pulse */
+.lp-hero__btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.lp-hero__btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+}
+
+.lp-hero__btn:hover::after {
+  transform: translateX(100%);
+}
+
+/* Topic chip hover float */
+.lp-topic {
+  transition: border-color var(--motion-duration-fast) var(--motion-easing),
+              color var(--motion-duration-fast) var(--motion-easing),
+              transform 0.2s ease;
+}
+
+.lp-topic:hover {
+  transform: translateY(-2px);
+}
+
+/* Feature card hover lift */
+.lp-feature {
+  transition: border-color var(--motion-duration-fast) var(--motion-easing),
+              box-shadow var(--motion-duration-fast) var(--motion-easing),
+              transform 0.2s ease;
+}
+
+.lp-feature:hover {
+  transform: translateY(-4px);
+}
+
+/* Nav fade-in */
+.lp-nav {
+  animation: lp-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0s forwards;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .lp-anim-hero,
+  .lp-reveal,
+  .lp-visible .lp-feature,
+  .lp-visible .lp-testimonial,
+  .lp-visible .lp-stat,
+  .lp-visible .lp-step,
+  .lp-nav {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
 .lp-body {
   min-height: 100vh;
   display: flex;
