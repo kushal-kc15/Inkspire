@@ -397,6 +397,330 @@
   margin: 0;
 }
 
+/* ── Section titles (centered header variant) ────────────────────────────── */
+.lp-section__header--center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.lp-section__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* ── Features ────────────────────────────────────────────────────────────── */
+.lp-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-8);
+}
+
+.lp-feature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: border-color var(--motion-duration-fast) var(--motion-easing),
+              box-shadow var(--motion-duration-fast) var(--motion-easing);
+}
+
+.lp-feature:hover {
+  border-color: var(--color-text-primary);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.lp-feature__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-primary);
+  opacity: 0.8;
+}
+
+.lp-feature__title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.lp-feature__desc {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta-size);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── How It Works (Steps) ────────────────────────────────────────────────── */
+.lp-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.lp-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-3);
+  max-width: 260px;
+}
+
+.lp-step__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-text-primary);
+  color: var(--color-background);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.lp-step__title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.lp-step__desc {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta-size);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.lp-step__arrow {
+  display: flex;
+  align-items: center;
+  padding-top: var(--space-3);
+  color: var(--color-border);
+}
+
+/* ── Stats ───────────────────────────────────────────────────────────────── */
+.lp-section--dark {
+  background-color: var(--color-text-primary);
+}
+
+.lp-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-8);
+  text-align: center;
+}
+
+.lp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.lp-stat__number {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-background);
+  line-height: 1;
+}
+
+.lp-stat__label {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta-size);
+  color: var(--color-background);
+  opacity: 0.7;
+}
+
+/* ── Testimonials ────────────────────────────────────────────────────────── */
+.lp-testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.lp-testimonial {
+  padding: var(--space-6);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.lp-testimonial__text {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+  margin: 0;
+  font-style: italic;
+}
+
+.lp-testimonial__author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lp-testimonial__name {
+  font-family: var(--font-sans);
+  font-size: var(--type-meta-size);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.lp-testimonial__role {
+  font-family: var(--font-sans);
+  font-size: var(--type-caption-size);
+  color: var(--color-text-secondary);
+}
+
+/* ── FAQs ────────────────────────────────────────────────────────────────── */
+.lp-faqs {
+  max-width: 720px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.lp-faq {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.lp-faq:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.lp-faq__question {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  padding: var(--space-5) 0;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lp-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.lp-faq__question::after {
+  content: '+';
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+  transition: transform var(--motion-duration-fast) var(--motion-easing);
+}
+
+.lp-faq[open] .lp-faq__question::after {
+  content: '\2212';
+}
+
+.lp-faq__answer {
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  padding-bottom: var(--space-5);
+}
+
+/* ── Newsletter ──────────────────────────────────────────────────────────── */
+.lp-newsletter {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.lp-newsletter__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.lp-newsletter__desc {
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 420px;
+}
+
+.lp-newsletter__form {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: 440px;
+  margin-top: var(--space-3);
+}
+
+.lp-newsletter__input {
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  padding: var(--space-3) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color var(--motion-duration-fast) var(--motion-easing);
+}
+
+.lp-newsletter__input:focus {
+  border-color: var(--color-text-primary);
+}
+
+.lp-newsletter__btn {
+  font-family: var(--font-sans);
+  font-size: var(--type-body-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-background);
+  background-color: var(--color-text-primary);
+  border: none;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity var(--motion-duration-fast) var(--motion-easing);
+}
+
+.lp-newsletter__btn:hover {
+  opacity: 0.8;
+}
+
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 860px) {
   .lp-hero__inner {
@@ -425,6 +749,23 @@
   .lp-stories {
     grid-template-columns: 1fr;
   }
+
+  .lp-features {
+    grid-template-columns: 1fr;
+  }
+
+  .lp-steps {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lp-step__arrow {
+    transform: rotate(90deg);
+  }
+
+  .lp-testimonials {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
@@ -443,6 +784,14 @@
   .lp-footer__inner {
     flex-direction: column;
     text-align: center;
+  }
+
+  .lp-newsletter__form {
+    flex-direction: column;
+  }
+
+  .lp-stats {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
